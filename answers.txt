@@ -1,0 +1,302 @@
+1. Let's start by figuring out how many dinosaurs we have. Count the number of dinosaurs.
+
+SELECT COUNT(*) FROM dinos;
+ count
+-------
+   331
+(1 row)
+
+2. We want to open up our own version of Jurassic Park, but this time only with dinosaurs who are actually from the Jurassic period. Find all the dinosaurs from the Jurassic period.
+
+name         |  period
+---------------------+----------
+Aardonyx            | Jurassic
+Agilisaurus         | Jurassic
+Allosaurus          | Jurassic
+Ammosaurus          | Jurassic
+Amygdalodon         | Jurassic
+Anchisaurus         | Jurassic
+Apatosaurus         | Jurassic
+Archaeopteryx       | Jurassic
+Barapasaurus        | Jurassic
+Barosaurus          | Jurassic
+Barosaurus          | Jurassic
+Bellusaurus         | Jurassic
+Brachiosaurus       | Jurassic
+Brachytrachelopan   | Jurassic
+Camarasaurus        | Jurassic
+Camptosaurus        | Jurassic
+Ceratosaurus        | Jurassic
+Cetiosauriscus      | Jurassic
+Cetiosaurus         | Jurassic
+Chaoyangsaurus      | Jurassic
+Chialingosaurus     | Jurassic
+Chinshakiangosaurus | Jurassic
+Chirostenotes       | Jurassic
+Chungkingosaurus    | Jurassic
+Coelurus            | Jurassic
+Compsognathus       | Jurassic
+Cryolophosaurus     | Jurassic
+Dacentrurus         | Jurassic
+Datousaurus         | Jurassic
+Dicraeosaurus       | Jurassic
+Dilophosaurus       | Jurassic
+Diplodocus          | Jurassic
+Dryosaurus          | Jurassic
+Dubreuillosaurus    | Jurassic
+Elaphrosaurus       | Jurassic
+Emausaurus          | Jurassic
+Euhelopus           | Jurassic
+Europasaurus        | Jurassic
+Eustreptospondylus  | Jurassic
+Gargoyleosaurus     | Jurassic
+Gasosaurus          | Jurassic
+Giraffatitan        | Jurassic
+Guanlong            | Jurassic
+Haplocanthosaurus   | Jurassic
+Hesperosaurus       | Jurassic
+Heterodontosaurus   | Jurassic
+Huayangosaurus      | Jurassic
+Janenschia          | Jurassic
+Jingshanosaurus     | Jurassic
+Juravenator         | Jurassic
+Kentrosaurus        | Jurassic
+Kotasaurus          | Jurassic
+Lapparentosaurus    | Jurassic
+Lesothosaurus       | Jurassic
+Lexovisaurus        | Jurassic
+Lophostropheus      | Jurassic
+Lufengosaurus       | Jurassic
+Mamenchisaurus      | Jurassic
+Marshosaurus        | Jurassic
+Massospondylus      | Jurassic
+Megalosaurus        | Jurassic
+Metriacanthosaurus  | Jurassic
+Monolophosaurus     | Jurassic
+Nqwebasaurus        | Jurassic
+Omeisaurus          | Jurassic
+Ornitholestes       | Jurassic
+Othnielia           | Jurassic
+Pantydraco          | Jurassic
+Patagosaurus        | Jurassic
+Piatnitzkysaurus    | Jurassic
+Podokesaurus        | Jurassic
+Poekilopleuron      | Jurassic
+Proceratosaurus     | Jurassic
+Rhoetosaurus        | Jurassic
+Sarcosaurus         | Jurassic
+Saurophaganax       | Jurassic
+Scelidosaurus       | Jurassic
+Scutellosaurus      | Jurassic
+Segisaurus          | Jurassic
+Seismosaurus        | Jurassic
+Shunosaurus         | Jurassic
+Sinraptor           | Jurassic
+Stegosaurus         | Jurassic
+Torvosaurus         | Jurassic
+Tuojiangosaurus     | Jurassic
+Vulcanodon          | Jurassic
+Yandusaurus         | Jurassic
+Yangchuanosaurus    | Jurassic
+Yimenosaurus        | Jurassic
+Yingshanosaurus     | Jurassic
+Yinlong             | Jurassic
+Yuanmousaurus       | Jurassic
+Yunnanosaurus       | Jurassic
+(92 rows)
+
+
+3. Jurassic Park was a huge success for us. Now we want to open up a sequel park: Cretaceous Park. This time though, we're a little more organized, and we want to know how much space all these dinosaurs are going to take up. Find the total sum length of all the dinosaurs from the Cretaceous period.
+
+dinosaurs=# SELECT COUNT(period) FROM dinos WHERE period = 'Cretaceous';
+ count
+-------
+   218
+(1 row)
+
+4. Great news! Our board of investors recently secured us a large island where we can put all the dinosaurs from both Jurassic Park and Cretaceous Park. This new park will be called Juraceous Park, which according to our focus groups really rolls off the tongue. Find all the dinosaurs from either the Jurassic OR Cretaceous periods, and order them by their species name alphabetically.
+
+dinosaurs=# SELECT name, period FROM dinos WHERE period = 'Jurassic' ORDER BY name ASC;
+
+Aardonyx            | Jurassic
+Agilisaurus         | Jurassic
+Allosaurus          | Jurassic
+Ammosaurus          | Jurassic
+Amygdalodon         | Jurassic
+Anchisaurus         | Jurassic
+Apatosaurus         | Jurassic
+Archaeopteryx       | Jurassic
+Barapasaurus        | Jurassic
+Barosaurus          | Jurassic
+Bellusaurus         | Jurassic
+Brachiosaurus       | Jurassic
+Brachytrachelopan   | Jurassic
+Camarasaurus        | Jurassic
+Camptosaurus        | Jurassic
+Ceratosaurus        | Jurassic
+Cetiosauriscus      | Jurassic
+Cetiosaurus         | Jurassic
+Chaoyangsaurus      | Jurassic
+Chialingosaurus     | Jurassic
+Chinshakiangosaurus | Jurassic
+Chirostenotes       | Jurassic
+Chungkingosaurus    | Jurassic
+Coelurus            | Jurassic
+Compsognathus       | Jurassic
+Cryolophosaurus     | Jurassic
+Dacentrurus         | Jurassic
+Datousaurus         | Jurassic
+Dicraeosaurus       | Jurassic
+Dilophosaurus       | Jurassic
+Diplodocus          | Jurassic
+Dryosaurus          | Jurassic
+Dubreuillosaurus    | Jurassic
+Elaphrosaurus       | Jurassic
+Emausaurus          | Jurassic
+Euhelopus           | Jurassic
+Europasaurus        | Jurassic
+Eustreptospondylus  | Jurassic
+Gargoyleosaurus     | Jurassic
+Gasosaurus          | Jurassic
+Giraffatitan        | Jurassic
+Guanlong            | Jurassic
+Haplocanthosaurus   | Jurassic
+Hesperosaurus       | Jurassic
+Heterodontosaurus   | Jurassic
+Huayangosaurus      | Jurassic
+Janenschia          | Jurassic
+Jingshanosaurus     | Jurassic
+Juravenator         | Jurassic
+Kentrosaurus        | Jurassic
+Kotasaurus          | Jurassic
+Lapparentosaurus    | Jurassic
+Lesothosaurus       | Jurassic
+Lexovisaurus        | Jurassic
+Lophostropheus      | Jurassic
+Lufengosaurus       | Jurassic
+Mamenchisaurus      | Jurassic
+Marshosaurus        | Jurassic
+Massospondylus      | Jurassic
+Megalosaurus        | Jurassic
+Metriacanthosaurus  | Jurassic
+Monolophosaurus     | Jurassic
+Nqwebasaurus        | Jurassic
+Omeisaurus          | Jurassic
+Ornitholestes       | Jurassic
+Othnielia           | Jurassic
+Pantydraco          | Jurassic
+Patagosaurus        | Jurassic
+Piatnitzkysaurus    | Jurassic
+Podokesaurus        | Jurassic
+       name         |  period
+---------------------+----------
+Aardonyx            | Jurassic
+Agilisaurus         | Jurassic
+Allosaurus          | Jurassic
+Ammosaurus          | Jurassic
+Amygdalodon         | Jurassic
+Anchisaurus         | Jurassic
+Apatosaurus         | Jurassic
+Archaeopteryx       | Jurassic
+Barapasaurus        | Jurassic
+Barosaurus          | Jurassic
+Bellusaurus         | Jurassic
+Brachiosaurus       | Jurassic
+Brachytrachelopan   | Jurassic
+Camarasaurus        | Jurassic
+Camptosaurus        | Jurassic
+Ceratosaurus        | Jurassic
+Cetiosauriscus      | Jurassic
+Cetiosaurus         | Jurassic
+Chaoyangsaurus      | Jurassic
+Chialingosaurus     | Jurassic
+Chinshakiangosaurus | Jurassic
+Chirostenotes       | Jurassic
+
+
+5.
+
+ dinosaurs=# SELECT name FROM dinos WHERE t_order = 'Saurischia' AND diet = 'Herbivorous';
+
+ name
+---------------------
+Yuanmousaurus
+Yimenosaurus
+Vulcanodon
+Supersaurus
+Sonidosaurus
+Seismosaurus
+Saltasaurus
+Rebbachisaurus
+Quaesitosaurus
+Shunosaurus
+Rhoetosaurus
+Plateosaurus
+Pelorosaurus
+Patagosaurus
+Pantydraco
+Paralititan
+Datousaurus
+Pleurocoelus
+Opisthocoelicaudia
+Omeisaurus
+Nigersaurus
+Neuquenosaurus
+Nemegtosaurus
+Mussaurus
+Maxakalisaurus
+Malawisaurus
+Mamenchisaurus
+Lufengosaurus
+Magyarosaurus
+Ligabuesaurus
+Jobaria
+Jingshanosaurus
+Janenschia
+Isisaurus
+Hypselosaurus
+Kotasaurus
+Guaibasaurus
+Giraffatitan
+Europasaurus
+Haplocanthosaurus
+Erketu
+Euhelopus
+Diplodocus
+Dicraeosaurus
+Chubutisaurus
+Chinshakiangosaurus
+Cetiosaurus
+Cetiosauriscus
+Brachytrachelopan
+Brachiosaurus
+Bellusaurus
+Barosaurus
+Barapasaurus
+Austrosaurus
+Camarasaurus
+Aragosaurus
+Antarctosaurus
+Anchisaurus
+Amygdalodon
+Ampelosaurus
+Amargasaurus
+Ammosaurus
+Alamosaurus
+Apatosaurus
+Lapparentosaurus
+Aardonyx
+Argentinosaurus
+Aegyptosaurus
+(68 rows)
+
+6. UPDATE dinos SET name = 'Shortie' WHERE length = (SELECT MIN(length) FROM dinos);
+UPDATE 1
+
+7.
+
+dinosaurs=# SELECT MIN(name) FROM dinos;
+   min
+----------
+ Aardonyx
+(1 row)
